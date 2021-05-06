@@ -11,7 +11,6 @@
 
 		const recipe = await res.json();
 		const resSearchRelated = await fetch(`/api/search.json?q=${recipe.label}&size=4`);
-		console.log(resSearchRelated)
 		const recipes = await resSearchRelated.json();
 		// const recipes = []
 		
