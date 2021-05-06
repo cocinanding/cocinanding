@@ -10,13 +10,12 @@
 		}
 
 		const recipe = await res.json();
-		const resSearchRelated = await fetch(`/api/search.json?q=${recipe.label}&size=4`);
-		console.log(resSearchRelated)
-		const recipes = await resSearchRelated.json();
-		// const recipes = []
+		// const resSearchRelated = await fetch(`/api/search.json?q=${recipe.label}&size=4`);
+		// const recipes = await resSearchRelated.json();
+
 		
 		return {
-			props: { recipe, recipes }
+			props: { recipe }
 		};
 
 	}	
@@ -37,14 +36,14 @@
 		>	
 	</div>
 	<h1 class="text-3xl sm:text-5xl font-semibold my-8">
-		{recipe.label}
+		{recipe.label} 
 		<a href={recipe.url} class="text-blue-500 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
 			<svg class="w-6 h-6 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
 			</svg>			
 		</a>
 	</h1>
-
+	{recipe.source}
 	<h2 class="flex items-center text-xl sm:text-3xl font-semibold mb-6 ">
 		<svg class="h-10 w-10 text-gray-400 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 		  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
