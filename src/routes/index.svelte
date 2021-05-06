@@ -17,7 +17,7 @@
 </script>
 
 <script>
-	import Header from '$lib/Header.svelte'
+
 
 	export let recipes
 	let q
@@ -28,22 +28,28 @@
 			recipes = await res.json()
 		}		
 	}
+
+	function setCookie(a, recipe){
+		a.addEventListener('submit', (e) => {
+			
+		});
+	}
 </script>
 
-<Header/>
+
 
 <form action="" on:submit|preventDefault="{search}"  class="my-6">
 	<input 
 		type="text" 
 		bind:value={q} 
-		class="bg-gray-100 w-full p-4" 
+		class="bg-gray-100 w-full p-4 rounded-xl focus:outline-none focus:border-yellow-700 border-2 border-transparent" 
 		placeholder="Search for recipes..."
 	>
 </form>
 
 <div class="grid grid-col-2 sm:grid-cols-3 gap-8">
 	{#each recipes as recipe, index}
-		<a href="/recipe/{recipe.uri.split('_')[1]}" class="">
+		<a use:setCookie={recipe} href="/recipe/{recipe.uri.split('_')[1]}" class="">
 			<div class="aspect-w-4 aspect-h-3">
 				<img 
 					src="{recipe.image}" 
