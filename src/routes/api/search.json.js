@@ -15,12 +15,13 @@ export async function get({ params, query }) {
 
     const hostname = lang === 'es' ? 'test-es' : 'api'
 
-    let url = `https://${hostname}.edamam.com/search?q=${q}&app_id=8af2623e&app_key=e66ad7ba6533d24ebeae5ead426adaed&from=${from}&to=${size}&mealType=${meal}`
+    let url = `https://${hostname}.edamam.com/search?q=${q}&app_id=8af2623e&app_key=e66ad7ba6533d24ebeae5ead426adaed&from=${from}&to=${size}`
     // url += !!dishtype ? `&dishType=${dishtype}` : ''
     // url += !!mealType ? `&mealType=${mealType}` : ''
 
     const response = await fetch(url)
     const { hits } = await response.json()
+    console.log(response)
     
     return {
         headers: {
