@@ -6,14 +6,16 @@ export async function get({ params, query }) {
     const q = query.get('q') || 'pollo'
     const lang = query.get('lang') || 'en'
     const from = query.get('from') || '0'
-    const to = query.get('to') || '36'
+    // const to = query.get('to') || '36'
+    const size = query.get('size') || '36'
+    const meal = query.get('meal') || ''
 
     const app = process.env.EDEMAM_APP
     const key = process.env.EDEMAM_KEY
 
     const hostname = lang === 'es' ? 'test-es' : 'api'
 
-    let url = `https://${hostname}.edamam.com/search?q=${q}&app_id=8af2623e&app_key=e66ad7ba6533d24ebeae5ead426adaed&from=${from}&to=${to}`
+    let url = `https://${hostname}.edamam.com/search?q=${q}&app_id=8af2623e&app_key=e66ad7ba6533d24ebeae5ead426adaed&from=${from}&to=${size}&mealType=${meal}`
     // url += !!dishtype ? `&dishType=${dishtype}` : ''
     // url += !!mealType ? `&mealType=${mealType}` : ''
 
