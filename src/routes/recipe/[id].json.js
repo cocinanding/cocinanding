@@ -14,11 +14,13 @@ export async function get({ params, query }) {
 
 		if ( !!selectors ) {
 		    const res = await fetch(recipe.url)
-		    const html = await res.text()
-		    const $ = cheerio.load(html)
-		    details = {
-		    	description: !!selectors.selDescription ? $(selectors.selDescription).html() : '',
-		    	intructions: $(selectors.selInstructions).map( (i,el) => $(el).text().trim() ).get(),
+		    if (res.ok) {
+			    const html = await res.text()
+			    const $ = cheerio.load(html)
+			    details = {
+			    	description: !!selectors.selDescription ? $(selectors.selDescription).html() : '',
+			    	intructions: $(selectors.selInstructions).map( (i,el) => $(el).text().trim() ).get(),
+			    }
 		    }
 		}
 
