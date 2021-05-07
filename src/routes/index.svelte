@@ -2,9 +2,10 @@
 	export async function load({ page, fetch, session, context }) {
 		const res = await fetch(`/api/search.json?q=pollo`);
 		if (res.ok) {
+			const result = await res.json()
 			return {
 				props: {
-					recipes: await res.json()
+					recipes: result.hits
 				}
 			};
 		}
@@ -18,25 +19,25 @@
 
 <script>
 
-
 	export let recipes
 	let q
+	let loading = false
+
 
 	async function search() {
-		const res = await fetch(`/api/search.json?q=${q}`);
+		loading = true
+		const resultByPage = 36 
+		const res = await fetch(`/api/search.json?q=${q}&from=0&size=${resultByPage}`);
 		if (res.ok) {
-			recipes = await res.json()
+			const result = await res.json()
+			recipes = result.hits
+			localStorage.setItem('q',result.q)
+			localStorage.setItem('count',result.count * resultByPage)
 		}		
+		loading = false
 	}
 
-	function setCookie(a, recipe){
-		a.addEventListener('submit', (e) => {
-			
-		});
-	}
 </script>
-
-
 
 <form action="" on:submit|preventDefault="{search}"  class="my-6">
 	<input 
@@ -49,7 +50,7 @@
 
 <div class="grid grid-col-2 sm:grid-cols-3 gap-8">
 	{#each recipes as recipe, index}
-		<a use:setCookie={recipe} href="/recipe/{recipe.uri.split('_')[1]}" class="">
+		<a href="/recipe/{recipe.uri.split('_')[1]}" class="">
 			<div class="aspect-w-4 aspect-h-3">
 				<img 
 					src="{recipe.image}" 

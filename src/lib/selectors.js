@@ -62,6 +62,9 @@ function getSelectors (site) {
 		"The Daily Meal": {
 			selInstructions: '.recipe-preparation p'
 		},
+		"Goop": {
+			selInstructions: '.recipes__instructions p'
+		},
 
 	}[site] || {}
 }
