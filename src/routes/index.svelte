@@ -54,13 +54,14 @@
 				<img 
 					src="{recipe.image}" 
 					alt="{recipe.label}" 
-					class="rounded-2xl" 
+					class="rounded-2xl object-cover" 
 					loading="lazy"
 				>	
 			</div>
 			<h2 class="text-md font-semibold mt-2 text-center text-gray-800">
 				{recipe.label}
-			</h2>	
+			</h2>
+			{recipe.source}	
 		</a>
 	{/each}
 </div>
