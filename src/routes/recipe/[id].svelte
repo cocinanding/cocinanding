@@ -64,7 +64,6 @@
 			</svg>			
 		</a>
 	</h1>
-	{recipe.source}
 	<div class="">
 		<div>{recipe.yield}</div>
 		<div>{recipe.calories}</div>
