@@ -1,13 +1,11 @@
 // const got = require('got')
 
 export async function get({ params, query, headers }) {
-    // let {q, from = 0, to = 36, lang = 'en', dishtype, mealType} = event.queryStringParameters;
-    console.log(headers)
+
     const q = query.get('q') || 'pollo'
     const lang = query.get('lang') || 'en'
     const from = query.get('from') || '0'
-    // const to = query.get('to') || '36'
-    const size = query.get('size') || '36'
+    const size = query.get('size') || '12'
     const to = parseInt(from) + parseInt(size);
     const meal = query.get('meal') || ''
 
@@ -25,10 +23,13 @@ export async function get({ params, query, headers }) {
 
     result.hits = !!result.hits  ? result.hits.map( el => el.recipe ) : []
 
+    const counter =  parseInt(result.count) * parseInt(size)
+
     return {
         headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
+            // 'set-cookie': [`q=${q}; `, `count=${counter}; `]
         },
         statusCode: 200,
         body: result

@@ -20,24 +20,28 @@
 
 <script>
 	import { onMount } from 'svelte';
+	import Cookies from 'js-cookie'	
 	import {getCookie} from '$lib/cookie'
 
 	export let recipe = {};
 	let recipes = []
 
 	onMount(async () => {
-		const cookies = getCookie()
-		const q = localStorage.getItem('q')
-		const count = localStorage.getItem('count')
-		const randomFrom = Math.floor( Math.random() * count )
-		const url = `/api/search.json?q=${q}&from=${randomFrom}&size=4`
+
+		const healthLabels = recipe.healthLabels.map( el => `health=${el}`).join('&')
+		const dietLabels = recipe.dietLabels.map( el => `diet=${el}`).join('&')
+		const cuisineType = recipe.cuisineType ? recipe.cuisineType[0] : ''
+		const mealType = recipe.mealType ? recipe.mealType[0] : ''
+		const dishType = recipe.dishType ? recipe.dishType[0] : ''
+
+		const url = `/api/search.json?q=&from=0&size=4&${dietLabels}&${healthLabels}&cuisineType=${cuisineType}&mealType=${mealType}&dishType=${dishType}`
 
 		const resSearchRelated = await fetch(url);
+
 		if (resSearchRelated.ok) {
 			const result = await resSearchRelated.json();
 			recipes = result.hits
 		}
-		// recipes = []
 	});
 
 
@@ -61,15 +65,14 @@
 		</a>
 	</h1>
 	{recipe.source}
-	<div class="grid grid-cols-3">
+	<div class="">
 		<div>{recipe.yield}</div>
 		<div>{recipe.calories}</div>
-		<div></div>
+		{#if recipe.totalTime > 0}
+			<div>{recipe.totalTime}</div>
+		{/if}
 	</div>
 	<h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-6 ">
-<!-- 		<svg class="h-10 w-10 text-gray-400 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-		  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-		</svg>	 -->	
 		Ingredients
 	</h2>
 	<ul class="divide-y text-lg text-gray-700">
@@ -83,12 +86,9 @@
 		{/each}
 	</ul>
 
-	{#if recipe.intructions }
+	{#if typeof recipe.intructions === 'object' && recipe.intructions.length }
 
 		<h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-6 mt-8">
-<!-- 			<svg class="h-10 w-10 text-gray-500 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-			</svg>	 -->	
 			How to Make It
 		</h2>
 

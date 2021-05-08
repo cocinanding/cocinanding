@@ -65,6 +65,9 @@ function getSelectors (site) {
 		"Goop": {
 			selInstructions: '.recipes__instructions p'
 		},
+		"ethnicfoodsrus.com": {
+			selInstructions: '.pf-content ol li'
+		},
 
 	}[site] || {}
 }
