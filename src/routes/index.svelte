@@ -1,7 +1,7 @@
 <script context="module">
 	export async function load({ page, fetch, query }) {
 		const q = ['chiken', 'pork', 'tuna']
-		const res = await fetch(`/api/search.json?q=pollo`);
+		const res = await fetch(`/recipes.json?q=pollo`);
 		if (res.ok) {
 			return {
 				props: {

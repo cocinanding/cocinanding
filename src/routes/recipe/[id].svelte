@@ -34,7 +34,7 @@
 		const mealType = recipe.mealType ? recipe.mealType[0] : ''
 		const dishType = recipe.dishType ? recipe.dishType[0] : ''
 
-		const url = `/api/search.json?q=&from=0&size=4&${dietLabels}&${healthLabels}&cuisineType=${cuisineType}&mealType=${mealType}&dishType=${dishType}`
+		const url = `/recipes.json?q=&from=0&size=4&${dietLabels}&${healthLabels}&cuisineType=${cuisineType}&mealType=${mealType}&dishType=${dishType}`
 
 		const resSearchRelated = await fetch(url);
 

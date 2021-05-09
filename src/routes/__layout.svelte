@@ -4,8 +4,10 @@
 	import "../app.postcss";
 </script>
 
-<Header/>
-<main>
-	<slot/>
-</main>
-<Footer/>
+<div class="min-h-screen">
+	<Header/>
+	<main >
+		<slot/>
+	</main>
+	<Footer/>
+</div>
