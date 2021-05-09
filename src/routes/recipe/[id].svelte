@@ -20,8 +20,6 @@
 
 <script>
 	import { onMount } from 'svelte';
-	import Cookies from 'js-cookie'	
-	import {getCookie} from '$lib/cookie'
 
 	export let recipe = {};
 	let recipes = []
