@@ -44,9 +44,6 @@ function getSelectors (site) {
 		"Food & Wine": {
 			selInstructions: '.instructions-section-item .paragraph'
 		},
-		"The Daily Meal": {
-			selInstructions: '.recipe-section p'
-		},
 		"EatingWell": {
 			selInstructions: '.instructions-section-item'
 		},
