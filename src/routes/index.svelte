@@ -19,7 +19,6 @@
 
 <script>
 	import { onMount } from 'svelte';	
-	import qs from 'query-string'
 
 	export let result = {}
 	let q
@@ -40,8 +39,6 @@
 
 	async function search() {
 		loading = true
-		// history.pushState( {}, '', '?' + qs.stringify({ page:page, q:q }) ) ;
-
 		const url = `/api/search.json?q=${q}&from=${from}&size=${count}`
 		const res = await fetch(url);
 		if (res.ok) {
