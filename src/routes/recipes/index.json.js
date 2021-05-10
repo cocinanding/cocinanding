@@ -23,8 +23,6 @@ export async function get({ params, query, headers }) {
 
     result.hits = !!result.hits  ? result.hits.map( el => el.recipe ) : []
 
-    const counter =  parseInt(result.count) * parseInt(size)
-
     return {
         headers: {
             'Content-Type': 'application/json',
