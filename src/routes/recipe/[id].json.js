@@ -1,5 +1,4 @@
 import getSelectors from '$lib/selectors'
-// import * as cheerio from 'cheerio'
 import HTMLParser from 'fast-html-parser'
 
 async function getDetails({ source, url }) {
@@ -10,14 +9,11 @@ async function getDetails({ source, url }) {
 		    const res = await fetch( url )
 		    if (res.ok) {
 			    const html = await res.text()
-			    var root = HTMLParser.parse(html);
-			    console.log( root.querySelectorAll(selectors.selInstructions) );
-			    // const $ = cheerio.load(html)
-			    // return {
-			    // 	description: !!selectors.selDescription ? $(selectors.selDescription).html() : '',
-			    // 	intructions: $(selectors.selInstructions).map( (i,el) => $(el).text().trim() ).get(),
-			    // }
-			    return {}
+			    var doc = HTMLParser.parse(html);
+			    return {
+			    	description: !!selectors.selDescription ? doc.querySelector( selectors.selInstructions ).text : '',
+			    	intructions: doc.querySelectorAll( selectors.selInstructions ).map( el => el.text ),
+			    }
 		    }
 		}
 	} catch (e) {
