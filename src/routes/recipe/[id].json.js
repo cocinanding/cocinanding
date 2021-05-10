@@ -1,5 +1,5 @@
 import getSelectors from '$lib/selectors'
-import cheerio from 'cheerio'
+import * as cheerio from 'cheerio';
 
 async function getDetails({ source, url }) {
 	try {
@@ -8,12 +8,13 @@ async function getDetails({ source, url }) {
 		if ( !!selectors ) {
 		    const res = await fetch( url )
 		    if (res.ok) {
-			    const html = await res.text()
-			    const $ = cheerio.load(html)
-			    return {
-			    	description: !!selectors.selDescription ? $(selectors.selDescription).html() : '',
-			    	intructions: $(selectors.selInstructions).map( (i,el) => $(el).text().trim() ).get(),
-			    }
+			    // const html = await res.text()
+			    // const $ = cheerio.load(html)
+			    // return {
+			    // 	description: !!selectors.selDescription ? $(selectors.selDescription).html() : '',
+			    // 	intructions: $(selectors.selInstructions).map( (i,el) => $(el).text().trim() ).get(),
+			    // }
+			    return {}
 		    }
 		}
 	} catch (e) {
