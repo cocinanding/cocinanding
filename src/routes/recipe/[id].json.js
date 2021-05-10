@@ -1,5 +1,6 @@
 import getSelectors from '$lib/selectors'
-import * as cheerio from 'cheerio';
+// import * as cheerio from 'cheerio'
+import HTMLParser from 'fast-html-parser'
 
 async function getDetails({ source, url }) {
 	try {
@@ -8,7 +9,9 @@ async function getDetails({ source, url }) {
 		if ( !!selectors ) {
 		    const res = await fetch( url )
 		    if (res.ok) {
-			    // const html = await res.text()
+			    const html = await res.text()
+			    var root = HTMLParser.parse(html);
+			    console.log( root.querySelectorAll(selectors.selInstructions) );
 			    // const $ = cheerio.load(html)
 			    // return {
 			    // 	description: !!selectors.selDescription ? $(selectors.selDescription).html() : '',
