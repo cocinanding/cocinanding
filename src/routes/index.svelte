@@ -68,7 +68,7 @@
 <div class="relative">
 	<div class="grid grid-col-2 sm:grid-cols-3 gap-8">
 		{#each recipes as recipe, index}
-			<a href="/recipe/{recipe.uri.split('_')[1]}" class="">
+			<a href="/recipe/{recipe.id}" class="">
 				<div class="aspect-w-4 aspect-h-3">
 					<img 
 						src="{recipe.image}" 
