@@ -1,5 +1,5 @@
 {
-  "name": "~TODO~",
+  "name": "Cocinanding",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev -p 3030",
