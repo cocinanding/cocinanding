@@ -25,13 +25,10 @@
 	let loading = false
 	let count = 12
 	let from = 0
-	let page = 0
 
-	$: page && search()
+	$: from && search()
 	
 	$: recipes = result.hits
-
-	$: from = page * count
 
 	onMount(()=>{
 		// ( { q , page } = qs.parse(location.search) )e
@@ -39,7 +36,7 @@
 
 	async function search() {
 		loading = true
-		const url = `/api/search.json?q=${q}&from=${from}&size=${count}`
+		const url = `/recipes.json?q=${q}&from=${from}&size=${count}`
 		const res = await fetch(url);
 		if (res.ok) {
 			result = await res.json()
@@ -89,7 +86,7 @@
 	<div class="flex justify-between my-10">
 		{#if result.from > 0}
 			<button 
-				on:click|preventDefault={()=>page = page - 1}
+				on:click|preventDefault={()=>from = from - count}
 				class="flex items-center font-semibold text-gray-600"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -101,7 +98,7 @@
 
 		{#if result.more }
 			<button 
-				on:click|preventDefault={()=>page = page + 1}
+				on:click|preventDefault={()=>from = from + count}
 				class="flex items-center font-semibold text-gray-600"
 			>
 				Next
