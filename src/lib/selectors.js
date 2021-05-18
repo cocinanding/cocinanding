@@ -33,7 +33,7 @@ function getSelectors (site) {
 			selInstructions: '.step-description'
 		},
 		"Serious Eats": {
-			selInstructions: '.structured-project__steps li'
+			selInstructions: '.structured-project__steps ol li p'
 		},
 		"PBS Food": {
 			selInstructions: '.direction-item'
