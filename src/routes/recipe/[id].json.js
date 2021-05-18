@@ -1,11 +1,14 @@
-import getSelectors from '$lib/selectors'
 import HTMLParser from 'fast-html-parser'
+
+import getSelectors from '$lib/selectors'
+import { notify } from '$lib/bot'
 
 async function getDetails({ source, url }) {
 	try {
 		const selectors = getSelectors( source )
 
-		if ( !!selectors ) {
+		if ( JSON.stringify(selectors) !== JSON.stringify({}) ) {
+
 		    const res = await fetch( url )
 		    if (res.ok) {
 			    const html = await res.text()
@@ -15,6 +18,8 @@ async function getDetails({ source, url }) {
 			    	intructions: doc.querySelectorAll( selectors.selInstructions ).map( el => el.text ),
 			    }
 		    }
+		} else {
+			notify(`source: ${source}, url: ${url}`)
 		}
 	} catch (e) {
 		return {}
