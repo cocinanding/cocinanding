@@ -46,11 +46,11 @@
 </script>
 
 <div class="max-w-screen-sm w-full mx-auto">
-	<div class="aspect-w-4 aspect-h-3">
+	<div class="h-80 overflow-hidden ">
 		<img 
 			src="{recipe.image}" 
 			alt="{recipe.label}" 
-			class="rounded-2xl object-cover" 
+			class="rounded-2xl object-cover bg-center w-full h-full object-cover"
 			loading="lazy"
 		>	
 	</div>
@@ -62,14 +62,15 @@
 			</svg>			
 		</a>
 	</h1>
-	<div class="">
-		<div>{recipe.yield}</div>
-		<div>{recipe.calories}</div>
+	<div class="mb-6">
+		<div><strong>Source:</strong> {recipe.source}</div>
+		<div><strong>Serves:</strong> {recipe.yield}</div>
+		<div><strong>Calories:</strong> {parseInt(recipe.calories)} kcal</div>
 		{#if recipe.totalTime > 0}
-			<div>{recipe.totalTime}</div>
+			<div><strong>Time:</strong> {recipe.totalTime}</div>
 		{/if}
 	</div>
-	<h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-6 ">
+	<h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-3 ">
 		Ingredients
 	</h2>
 	<ul class="divide-y text-lg text-gray-700">

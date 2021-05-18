@@ -4,7 +4,6 @@ import HTMLParser from 'fast-html-parser'
 async function getDetails({ source, url }) {
 	try {
 		const selectors = getSelectors( source )
-
 		if ( !!selectors ) {
 		    const res = await fetch( url )
 		    if (res.ok) {

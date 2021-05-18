@@ -1,3 +1,3 @@
 <footer class="py-12">
-	<img src="/cocinanding-logo.jpg" alt="cocinanding logo" class="h-12 w-12 mx-auto">
+	<img src="/cocinanding-logo.jpg" alt="cocinanding logo" class="w-20 mx-auto">
 </footer>
