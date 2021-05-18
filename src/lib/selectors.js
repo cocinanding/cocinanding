@@ -65,6 +65,9 @@ function getSelectors (site) {
 		"ethnicfoodsrus.com": {
 			selInstructions: '.pf-content ol li'
 		},
+		"Food & Style": {
+			selInstructions: '.instructions ol li'
+		},
 
 	}[site] || {}
 }
