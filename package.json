@@ -22,7 +22,6 @@
   "type": "module",
   "dependencies": {
     "fast-html-parser": "^1.0.1",
-    "node-telegram-bot-api": "^0.53.0",
-    "telegraf": "^4.3.0"
+    "node-telegram-bot-api": "^0.53.0"
   }
 }
