@@ -8,11 +8,12 @@ async function getDetails({ source, url }) {
 		const selectors = getSelectors( source )
 
 		if ( JSON.stringify(selectors) !== JSON.stringify({}) ) {
-
+			console.log(selectors.selInstructions)
 		    const res = await fetch( url )
 		    if (res.ok) {
 			    const html = await res.text()
-			    var doc = HTMLParser.parse(html);
+			    var doc = HTMLParser.parse(html, {lowerCaseTagName: true});
+			    console.log(doc.querySelectorAll( '.structured-project__steps OL' ))
 			    return {
 			    	description: !!selectors.selDescription ? doc.querySelector( selectors.selInstructions ).text : '',
 			    	intructions: doc.querySelectorAll( selectors.selInstructions ).map( el => el.text ),
