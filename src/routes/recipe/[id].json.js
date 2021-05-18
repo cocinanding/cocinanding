@@ -12,8 +12,7 @@ async function getDetails({ source, url }) {
 		    const res = await fetch( url )
 		    if (res.ok) {
 			    const html = await res.text()
-			    var doc = HTMLParser.parse(html, {lowerCaseTagName: true});
-			    console.log(doc.querySelectorAll( '.structured-project__steps OL' ))
+			    var doc = HTMLParser.parse(html);
 			    return {
 			    	description: !!selectors.selDescription ? doc.querySelector( selectors.selInstructions ).text : '',
 			    	intructions: doc.querySelectorAll( selectors.selInstructions ).map( el => el.text ),
