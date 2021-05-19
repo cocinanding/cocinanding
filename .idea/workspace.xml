@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30e06a22-e219-4b0f-912f-8725728946e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/selectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/selectors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/recipe/[id].json.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/recipe/[id].json.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/recipe/[id].svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/recipe/[id].svelte" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/src/lib/selectors.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1047">
-              <caret line="71" column="49" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
+              <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -296,12 +293,12 @@
       <workItem from="1619717472461" duration="510000" />
       <workItem from="1620614836278" duration="681000" />
       <workItem from="1620615612075" duration="11072000" />
-      <workItem from="1621308190853" duration="4751000" />
+      <workItem from="1621308190853" duration="4896000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30054000" />
+    <option name="totallyTimeSpent" value="30199000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="23" width="1696" height="1417" extended-state="0" />
@@ -501,7 +498,7 @@
     <entry file="file://$PROJECT_DIR$/src/lib/selectors.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1047">
-          <caret line="71" column="49" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
+          <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
         </state>
       </provider>
     </entry>

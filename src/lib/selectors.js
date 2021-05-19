@@ -69,7 +69,7 @@ function getSelectors (site) {
 			selInstructions: '.instructions ol li'
 		},
 		"Smitten Kitchen": {
-			selInstructions: '.entry-content > p '
+			selInstructions: '.entry-content > p'
 		},
 
 	}[site] || {}
