@@ -63,6 +63,7 @@
 		</a>
 	</h1>
 	<div class="mb-6">
+		<div><strong>Recipe Data:</strong> {recipe}</div>
 		<div><strong>Source:</strong> {recipe.source}</div>
 		<div><strong>Serves:</strong> {recipe.yield}</div>
 		<div><strong>Calories:</strong> {parseInt(recipe.calories)} kcal</div>

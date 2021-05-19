@@ -68,6 +68,9 @@ function getSelectors (site) {
 		"Food & Style": {
 			selInstructions: '.instructions ol li'
 		},
+		"Smitten Kitchen": {
+			selInstructions: '.entry-content > p '
+		},
 
 	}[site] || {}
 }
