@@ -71,7 +71,36 @@ function getSelectors (site) {
 		"Smitten Kitchen": {
 			selInstructions: '.entry-content > p'
 		},
-
+		"adishofdailylife.com": {
+			selInstructions: '#mpprecipe-instructions-list li'
+		},
+		"Food Network": {
+			selInstructions: '.o-Method__m-Body li'
+		},
+		"San Francisco Gate": {
+			selInstructions: ''
+		},
+		"Tasting Table": {
+			selInstructions: '.recipe-directions li'
+		},
+		"Rachael Ray": {
+			selInstructions: '.recipe-article__directions p'
+		},
+		"ad2": {
+			selInstructions: ''
+		},
+		"aa1": {
+			selInstructions: ''
+		},
+		"ab1": {
+			selInstructions: ''
+		},
+		"ac1": {
+			selInstructions: ''
+		},
+		"ad1": {
+			selInstructions: ''
+		},
 	}[site] || {}
 }
 
