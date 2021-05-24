@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30e06a22-e219-4b0f-912f-8725728946e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/routes/__layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/__layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.svelte" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,14 +77,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/__layout.svelte">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="270">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#10#49#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/routes/index.svelte">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -94,15 +103,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="774">
               <caret line="43" selection-start-line="43" selection-end-line="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app.postcss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -122,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>EDEMAM_APP</find>
       <find>width: 100%</find>
       <find>.uk-border-rounded-medium</find>
       <find>uk-card-media-top</find>
@@ -151,6 +150,7 @@
       <find>Martha</find>
       <find>getSelectors</find>
       <find>selInstructions</find>
+      <find>pollo</find>
       <find>Serious Eats</find>
     </findStrings>
     <dirStrings>
@@ -185,6 +185,7 @@
         <option value="$PROJECT_DIR$/src/routes/recipe/[id].json.js" />
         <option value="$PROJECT_DIR$/src/lib/selectors.js" />
         <option value="$PROJECT_DIR$/src/routes/__layout.svelte" />
+        <option value="$PROJECT_DIR$/src/routes/index.svelte" />
       </list>
     </option>
   </component>
@@ -293,12 +294,12 @@
       <workItem from="1619717472461" duration="510000" />
       <workItem from="1620614836278" duration="681000" />
       <workItem from="1620615612075" duration="11072000" />
-      <workItem from="1621308190853" duration="5975000" />
+      <workItem from="1621308190853" duration="6339000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31278000" />
+    <option name="totallyTimeSpent" value="31642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="23" width="1696" height="1417" extended-state="0" />
@@ -392,13 +393,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/about.svelte">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/index.svelte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.svelte-kit/output/server/app.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -494,11 +488,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/__layout.svelte">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="270">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#10#49#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/index.svelte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
         </state>
       </provider>
     </entry>

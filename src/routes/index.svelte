@@ -1,7 +1,8 @@
 <script context="module">
 	export async function load({ page, fetch, query }) {
-		const q = ['chiken', 'pork', 'tuna']
-		const res = await fetch(`/recipes.json?q=pollo`);
+		const meats = ['chicken', 'pork', 'tuna', 'meat', 'fish'];
+		const q = meats[Math.floor(Math.random() * meats.length)];
+		const res = await fetch(`/recipes.json?q=` + q);
 		if (res.ok) {
 			return {
 				props: {
