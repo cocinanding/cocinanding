@@ -19,6 +19,7 @@
 </script>
 
 <script>
+	import { t } from "$lib/i18n";	
 	import { onMount } from 'svelte';
 
 	export let recipe = {};
