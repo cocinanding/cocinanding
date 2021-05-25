@@ -1,8 +1,6 @@
 <script context="module">
 	export async function load({ page, fetch, query }) {
-		const meats = ['chicken', 'pork', 'tuna', 'meat', 'fish'];
-		const q = meats[Math.floor(Math.random() * meats.length)];
-		const res = await fetch(`/recipes.json?q=` + q);
+		const res = await fetch(`/recipes.json`);
 		if (res.ok) {
 			return {
 				props: {
@@ -19,25 +17,22 @@
 </script>
 
 <script>
-	import { onMount } from 'svelte';	
+	import { t, locale } from "$lib/i18n";
 
 	export let result = {}
-	let q
+	let q = ''
 	let loading = false
 	let count = 12
 	let from = 0
 
 	$: from && search()
+	$: $locale && search()
 	
 	$: recipes = result.hits
 
-	onMount(()=>{
-		// ( { q , page } = qs.parse(location.search) )e
-	})
-
 	async function search() {
 		loading = true
-		const url = `/recipes.json?q=${q}&from=${from}&size=${count}`
+		const url = `/recipes.json?q=${q}&from=${from}&size=${count}&l=${$locale}`
 		const res = await fetch(url);
 		if (res.ok) {
 			result = await res.json()
@@ -52,7 +47,7 @@
 		type="text" 
 		bind:value={q} 
 		class="bg-gray-100 w-full p-4 rounded-xl focus:outline-none focus:border-yellow-700 border-2 border-transparent pr-12" 
-		placeholder="Search for recipes..."
+		placeholder="{ $t('placeholder-search') }"
 	>
 	{#if loading}
 		<div class="absolute top-0 right-6 h-full">
