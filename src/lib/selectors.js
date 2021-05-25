@@ -86,17 +86,17 @@ function getSelectors (site) {
 		"Rachael Ray": {
 			selInstructions: '.recipe-article__directions p'
 		},
-		"ad2": {
-			selInstructions: ''
+		"BBC": {
+			selInstructions: '.recipe-method__list li'
 		},
-		"aa1": {
-			selInstructions: ''
+		"Real Simple": {
+			selInstructions: '.instructions-section li'
 		},
-		"ab1": {
-			selInstructions: ''
+		"BBC Good Food": {
+			selInstructions: '.grouped-list__list li'
 		},
-		"ac1": {
-			selInstructions: ''
+		"Honest Cooking": {
+			selInstructions: 'li.instruction'
 		},
 		"ad1": {
 			selInstructions: ''
