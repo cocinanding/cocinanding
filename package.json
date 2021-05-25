@@ -1,5 +1,5 @@
 {
-  "name": "~TODO~",
+  "name": "Cocinanding",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev -p 3030",
@@ -21,6 +21,7 @@
   },
   "type": "module",
   "dependencies": {
-    "fast-html-parser": "^1.0.1"
+    "fast-html-parser": "^1.0.1",
+    "node-telegram-bot-api": "^0.53.0"
   }
 }

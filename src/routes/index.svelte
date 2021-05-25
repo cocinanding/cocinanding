@@ -1,7 +1,8 @@
 <script context="module">
 	export async function load({ page, fetch, query }) {
-		const q = ['chiken', 'pork', 'tuna']
-		const res = await fetch(`/recipes.json?q=pollo`);
+		const meats = ['chicken', 'pork', 'tuna', 'meat', 'fish'];
+		const q = meats[Math.floor(Math.random() * meats.length)];
+		const res = await fetch(`/recipes.json?q=` + q);
 		if (res.ok) {
 			return {
 				props: {
@@ -25,13 +26,10 @@
 	let loading = false
 	let count = 12
 	let from = 0
-	let page = 0
 
-	$: page && search()
+	$: from && search()
 	
 	$: recipes = result.hits
-
-	$: from = page * count
 
 	onMount(()=>{
 		// ( { q , page } = qs.parse(location.search) )e
@@ -39,7 +37,7 @@
 
 	async function search() {
 		loading = true
-		const url = `/api/search.json?q=${q}&from=${from}&size=${count}`
+		const url = `/recipes.json?q=${q}&from=${from}&size=${count}`
 		const res = await fetch(url);
 		if (res.ok) {
 			result = await res.json()
@@ -71,7 +69,7 @@
 <div class="relative">
 	<div class="grid grid-col-2 sm:grid-cols-3 gap-8">
 		{#each recipes as recipe, index}
-			<a href="/recipe/{recipe.uri.split('_')[1]}" class="">
+			<a href="/recipe/{recipe.id}" class="">
 				<div class="aspect-w-4 aspect-h-3">
 					<img 
 						src="{recipe.image}" 
@@ -89,7 +87,7 @@
 	<div class="flex justify-between my-10">
 		{#if result.from > 0}
 			<button 
-				on:click|preventDefault={()=>page = page - 1}
+				on:click|preventDefault={()=>from = from - count}
 				class="flex items-center font-semibold text-gray-600"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -101,7 +99,7 @@
 
 		{#if result.more }
 			<button 
-				on:click|preventDefault={()=>page = page + 1}
+				on:click|preventDefault={()=>from = from + count}
 				class="flex items-center font-semibold text-gray-600"
 			>
 				Next

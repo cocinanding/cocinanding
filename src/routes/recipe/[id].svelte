@@ -45,12 +45,16 @@
 
 </script>
 
+<svelte:head>
+	<title>Cocinanding - {recipe.label}</title>
+</svelte:head>
+
 <div class="max-w-screen-sm w-full mx-auto">
-	<div class="aspect-w-4 aspect-h-3">
+	<div class="h-80 overflow-hidden ">
 		<img 
 			src="{recipe.image}" 
 			alt="{recipe.label}" 
-			class="rounded-2xl object-cover" 
+			class="rounded-2xl object-cover bg-center w-full h-full object-cover"
 			loading="lazy"
 		>	
 	</div>
@@ -62,20 +66,23 @@
 			</svg>			
 		</a>
 	</h1>
-	<div class="">
-		<div>{recipe.yield}</div>
-		<div>{recipe.calories}</div>
+	<div class="mb-6">
+<!--		<div><strong>Recipe Data:</strong> {recipe}</div>-->
+		<div><strong>Source:</strong> {recipe.source}</div>
+		<div><strong>Serves:</strong> {recipe.yield}</div>
+		<div><strong>Calories:</strong> {parseInt(recipe.calories)} kcal</div>
 		{#if recipe.totalTime > 0}
-			<div>{recipe.totalTime}</div>
+			<div><strong>Time:</strong> {recipe.totalTime}</div>
 		{/if}
 	</div>
-	<h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-6 ">
+	<h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-3 ">
 		Ingredients
 	</h2>
 	<ul class="divide-y text-lg text-gray-700">
 		{#each recipe.ingredients as ingredient, index}
 			<li class="flex items-center py-2">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<svg xmlns="http://www.w3.org/2000/svg" 
+				class="h-6 w-6 text-gray-300 mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
 				</svg>
 				{ingredient.text}				

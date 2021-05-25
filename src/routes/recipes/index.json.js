@@ -21,7 +21,10 @@ export async function get({ params, query, headers }) {
     const response = await fetch(url)
     let result = await response.json()
 
-    result.hits = !!result.hits  ? result.hits.map( el => el.recipe ) : []
+    result.hits = !!result.hits  ? result.hits.map( el => {
+        const id = el.recipe.label.replace(/[\W\s]/g,'-') + '-' + el.recipe.uri.split('_')[1]
+        return {...el.recipe, id: id}
+    }) : []
 
     return {
         headers: {

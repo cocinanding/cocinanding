@@ -33,7 +33,7 @@ function getSelectors (site) {
 			selInstructions: '.step-description'
 		},
 		"Serious Eats": {
-			selInstructions: '.structured-project__steps li'
+			selInstructions: '.structured-project__steps OL LI'
 		},
 		"PBS Food": {
 			selInstructions: '.direction-item'
@@ -65,7 +65,42 @@ function getSelectors (site) {
 		"ethnicfoodsrus.com": {
 			selInstructions: '.pf-content ol li'
 		},
-
+		"Food & Style": {
+			selInstructions: '.instructions ol li'
+		},
+		"Smitten Kitchen": {
+			selInstructions: '.entry-content > p'
+		},
+		"adishofdailylife.com": {
+			selInstructions: '#mpprecipe-instructions-list li'
+		},
+		"Food Network": {
+			selInstructions: '.o-Method__m-Body li'
+		},
+		"San Francisco Gate": {
+			selInstructions: ''
+		},
+		"Tasting Table": {
+			selInstructions: '.recipe-directions li'
+		},
+		"Rachael Ray": {
+			selInstructions: '.recipe-article__directions p'
+		},
+		"ad2": {
+			selInstructions: ''
+		},
+		"aa1": {
+			selInstructions: ''
+		},
+		"ab1": {
+			selInstructions: ''
+		},
+		"ac1": {
+			selInstructions: ''
+		},
+		"ad1": {
+			selInstructions: ''
+		},
 	}[site] || {}
 }
 
