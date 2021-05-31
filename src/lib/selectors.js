@@ -134,6 +134,15 @@ function getSelectors (site) {
 		"No Recipes": {
 			selInstructions: '.wprm-recipe-instruction-text'
 		},
+		"Jamie Oliver": {
+			selInstructions: '.recipeSteps li'
+		},
+		"Rick Bayless": {
+			selInstructions: '.recipe-main p'
+		},
+		"Pioneer Woman": {
+			selInstructions: '.direction-lists direction-lists'
+		},
 	}[site] || {}
 }
 
