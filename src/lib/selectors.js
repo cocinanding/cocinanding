@@ -98,8 +98,41 @@ function getSelectors (site) {
 		"Honest Cooking": {
 			selInstructions: 'li.instruction'
 		},
-		"ad1": {
-			selInstructions: ''
+		"Closet Cooking": {
+			selInstructions: '.recipeInstructions'
+		},
+		"BigOven": {
+			selInstructions: '.instructions p'
+		},
+		"In Jennie's Kitchen": {
+			selInstructions: '#directions li'
+		},
+		"spoonsfulloflove.blogspot.com": {
+			selInstructions: '#directions li'
+		},
+		"spanishsabores.com": {
+			selInstructions: '.wprm-recipe-instructions li'
+		},
+		"recipes.sparkpeople.com": {
+			selInstructions: '#directions_w'
+		},
+		"junedarville.com": {
+			selInstructions: '.wprm-recipe-instruction-text'
+		},
+		"food.com": {
+			selInstructions: '.recipe-directions__step'
+		},
+		"recipezaar.com": {
+			selInstructions: '.recipe-directions__step'
+		},
+		"mind-over-batter.com": {
+			selInstructions: '.wprm-recipe-instruction-text'
+		},
+		"What's Gaby Cooking?": {
+			selInstructions: '.wprm-recipe-instruction-text'
+		},
+		"No Recipes": {
+			selInstructions: '.wprm-recipe-instruction-text'
 		},
 	}[site] || {}
 }
