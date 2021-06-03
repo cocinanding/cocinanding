@@ -61,6 +61,8 @@
 		</div>
 	{/if}		
 </form>
+
+
 <div class="relative">
 	<div class="grid grid-col-2 sm:grid-cols-3 gap-8">
 		{#each recipes as recipe, index}
