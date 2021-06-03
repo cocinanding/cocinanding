@@ -143,6 +143,12 @@ function getSelectors (site) {
 		"Pioneer Woman": {
 			selInstructions: '.direction-lists direction-lists'
 		},
+		"mylatinatable.com": {
+			selInstructions: '.wprm-recipe-instruction'
+		},
+		"recipezazz.com": {
+			selInstructions: '.wprm-recipe-instruction'
+		},
 	}[site] || {}
 }
 
