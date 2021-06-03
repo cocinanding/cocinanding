@@ -62,17 +62,6 @@
 	{/if}		
 </form>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Homepage - Large -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9303713846691021"
-     data-ad-slot="7347323933"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 <div class="relative">
 	<div class="grid grid-col-2 sm:grid-cols-3 gap-8">

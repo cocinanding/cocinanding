@@ -95,7 +95,7 @@
         {/each}
     </ul>
 
-    {#if typeof recipe.intructions === 'object' && recipe.intructions.length }
+    {#if typeof recipe.intructions === 'object' && recipe.intructions.length  && 1===2}
 
         <h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-6 mt-8">
             How to Make It
