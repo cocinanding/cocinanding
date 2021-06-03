@@ -98,6 +98,66 @@ function getSelectors (site) {
 		"Honest Cooking": {
 			selInstructions: 'li.instruction'
 		},
+		"BigOven": {
+			selInstructions: '.instructions p'
+		},
+		"Closet Cooking": {
+			selInstructions: '.instructions  li'
+		},
+		// "blue-kitchen.com": {
+		// 	selInstructions: ''
+		// },
+		"In Jennie's Kitchen": {
+			selInstructions: '.recipe-content p:last-child'
+		},
+		"Lottie + Doof": {
+			selInstructions: ''
+		},
+		"spoonsfulloflove.blogspot.com": {
+			selInstructions: '#directions li'
+		},
+		"spanishsabores.com": {
+			selInstructions: '.wprm-recipe-instructions li'
+		},
+		"recipes.sparkpeople.com": {
+			selInstructions: '#directions_w'
+		},
+		"mllenoelle.wordpress.com": {
+			selInstructions: ''
+		},
+		"junedarville.com": {
+			selInstructions: '.wprm-recipe-instructions li '
+		},
+		"food.com": {
+			selInstructions: '.recipe-directions__steps li'
+		},
+		"recipezaar.com": {
+			selInstructions: '.recipe-directions__steps li'
+		},
+		"mind-over-batter.com": {
+			selInstructions: '.wprm-recipe-instructions-container .wprm-recipe-instruction-group'
+		},
+		"Chubby Hubby": {
+			selInstructions: ''
+		},
+		"Chez Us": {
+			selInstructions: ''
+		},
+		"source: What's Gaby Cooking?, url: http://whatsgabycooking.com/carne-asada-fries/": {
+			selInstructions: '.wprm-recipe-instruction-group'
+		},
+		"ad1": {
+			selInstructions: ''
+		},
+		"ad1": {
+			selInstructions: ''
+		},
+		"ad1": {
+			selInstructions: ''
+		},
+		"ad1": {
+			selInstructions: ''
+		},
 		"ad1": {
 			selInstructions: ''
 		},
@@ -105,3 +165,14 @@ function getSelectors (site) {
 }
 
 export default getSelectors
+
+
+// Need to pull manually
+// - Blue Kitchen
+// - mllenoelle.wordpress.com"
+// - Chubby Hubby
+
+
+
+// Remove from list
+// - https://www.lottieanddoof.com/
