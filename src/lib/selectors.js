@@ -107,16 +107,11 @@ function getSelectors (site) {
 		// "blue-kitchen.com": {
 		// 	selInstructions: ''
 		// },
-		"In Jennie's Kitchen": {
-			selInstructions: '.recipe-content p:last-child'
-		},
+		// "In Jennie's Kitchen": {
+		// 	selInstructions: '.recipe-content p:last-child'
+		// },
 		"Lottie + Doof": {
 			selInstructions: ''
-		"Closet Cooking": {
-			selInstructions: '.recipeInstructions'
-		},
-		"BigOven": {
-			selInstructions: '.instructions p'
 		},
 		"In Jennie's Kitchen": {
 			selInstructions: '#directions li'
