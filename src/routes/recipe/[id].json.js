@@ -7,14 +7,16 @@ async function getDetails({ source, url }) {
 	try {
 		const selectors = getSelectors( source )
 		if ( JSON.stringify(selectors) !== JSON.stringify({}) ) {
-			console.log(selectors.selInstructions)
 		    const res = await fetch( url )
 		    if (res.ok) {
 			    const html = await res.text()
 			    var doc = HTMLParser.parse(html);
 			    return {
 			    	description: !!selectors.selDescription ? doc.querySelector( selectors.selInstructions ).text : '',
-			    	intructions: doc.querySelectorAll( selectors.selInstructions ).map( el => el.text ),
+				    	intructions: doc
+				    	.querySelectorAll( selectors.selInstructions )
+				    	.map( el => el.text.trim() )
+				    	.filter( el => !!el ),
 			    }
 		    }
 		} else {

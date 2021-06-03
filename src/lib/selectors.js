@@ -112,6 +112,14 @@ function getSelectors (site) {
 		},
 		"Lottie + Doof": {
 			selInstructions: ''
+		"Closet Cooking": {
+			selInstructions: '.recipeInstructions'
+		},
+		"BigOven": {
+			selInstructions: '.instructions p'
+		},
+		"In Jennie's Kitchen": {
+			selInstructions: '#directions li'
 		},
 		"spoonsfulloflove.blogspot.com": {
 			selInstructions: '#directions li'
@@ -146,20 +154,20 @@ function getSelectors (site) {
 		"source: What's Gaby Cooking?, url: http://whatsgabycooking.com/carne-asada-fries/": {
 			selInstructions: '.wprm-recipe-instruction-group'
 		},
-		"ad1": {
-			selInstructions: ''
+		"What's Gaby Cooking?": {
+			selInstructions: '.wprm-recipe-instruction-text'
 		},
-		"ad1": {
-			selInstructions: ''
+		"No Recipes": {
+			selInstructions: '.wprm-recipe-instruction-text'
 		},
-		"ad1": {
-			selInstructions: ''
+		"Jamie Oliver": {
+			selInstructions: '.recipeSteps li'
 		},
-		"ad1": {
-			selInstructions: ''
+		"Rick Bayless": {
+			selInstructions: '.recipe-main p'
 		},
-		"ad1": {
-			selInstructions: ''
+		"Pioneer Woman": {
+			selInstructions: '.direction-lists direction-lists'
 		},
 	}[site] || {}
 }
