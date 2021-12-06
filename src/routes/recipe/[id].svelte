@@ -27,13 +27,13 @@
 
 	onMount(async () => {
 
-		const healthLabels = recipe.healthLabels.map( el => `health=${el}`).join('&')
-		const dietLabels = recipe.dietLabels.map( el => `diet=${el}`).join('&')
+		// const healthLabels = recipe.healthLabels.map( el => `health=${el.toLowerCase()}`).join('&')
+		const dietLabels = recipe.dietLabels.map( el => `diet=${el.toLowerCase()}`).join('&')
 		const cuisineType = recipe.cuisineType ? recipe.cuisineType[0] : ''
-		const mealType = recipe.mealType ? recipe.mealType[0] : ''
+		// const mealType = recipe.mealType ? recipe.mealType[0] : ''
 		const dishType = recipe.dishType ? recipe.dishType[0] : ''
 
-		const url = `/recipes.json?q=&from=0&size=4&${dietLabels}&${healthLabels}&cuisineType=${cuisineType}&mealType=${mealType}&dishType=${dishType}`
+		const url = `/recipes.json?q=*&from=0&size=4&${dietLabels}&&cuisineType=${cuisineType}&dishType=${dishType}`
 
 		const resSearchRelated = await fetch(url);
 
