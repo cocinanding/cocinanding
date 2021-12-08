@@ -1,12 +1,11 @@
 <script context="module">
 	export async function load({ page, fetch, query }) {
-		const res = await fetch(`/recipes/recetasgratis.json`);
+		const res = await fetch(`/recipes.json`);
 
 		if (res.ok) {
-			const recipes = await res.json()
-			console.log(recipes)
+			const {recipes} = await res.json()
 			return {
-				props: { recipes }
+				props: { recipes	}
 			};
 		}
 
@@ -21,7 +20,7 @@
 	import { t, locale } from "$lib/i18n";
 	import Recipe from '$lib/components/Recipe.svelte'
 
-	export let recipes = []
+	export let recipes = {}
 	let q = ''
 	let loading = false
 	let count = 12

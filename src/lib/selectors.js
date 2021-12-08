@@ -36,7 +36,7 @@ function getSelectors (site) {
 			selInstructions: '.structured-project__steps OL LI'
 		},
 		"PBS Food": {
-			selInstructions: '.direction-item'
+			selInstructions: '.directions li'
 		},
 		"Delish": {
 			selInstructions: '.direction-lists li'

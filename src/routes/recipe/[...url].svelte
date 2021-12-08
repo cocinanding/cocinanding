@@ -1,6 +1,6 @@
 <script context="module">
     export async function load({page, fetch, session, context}) {
-        const res = await fetch(`/recipe/${page.params.id}.json`);
+        const res = await fetch(`/recipe.json?url=${page.params.url}.json`);
 
         if (!res.ok) {
             return {
@@ -10,57 +10,34 @@
         }
 
         const recipe = await res.json();
-
         return {
-            props: {recipe}
+            props: { recipe }
         };
 
     }
 </script>
 
 <script>
-    import {t} from "$lib/i18n";
-    import {onMount} from 'svelte';
-
+    // import RelatedRecipes from '$lib/components/RelatedRecipes.svelte'
     export let recipe = {};
-    let recipes = []
-
-    onMount(async () => {
-
-        const healthLabels = recipe.healthLabels.map(el => `health=${el}`).join('&')
-        const dietLabels = recipe.dietLabels.map(el => `diet=${el}`).join('&')
-        const cuisineType = recipe.cuisineType ? recipe.cuisineType[0] : ''
-        const mealType = recipe.mealType ? recipe.mealType[0] : ''
-        const dishType = recipe.dishType ? recipe.dishType[0] : ''
-
-        const url = `/recipes.json?q=&from=0&size=4&${dietLabels}&${healthLabels}&cuisineType=${cuisineType}&mealType=${mealType}&dishType=${dishType}`
-
-        const resSearchRelated = await fetch(url);
-
-        if (resSearchRelated.ok) {
-            const result = await resSearchRelated.json();
-            recipes = result.hits
-        }
-    });
-
 
 </script>
 
 <svelte:head>
-    <title>Cocinanding - {recipe.label}</title>
+    <title>Cocinanding - {recipe.title}</title>
 </svelte:head>
 
 <div class="max-w-screen-sm w-full mx-auto">
     <div class="h-80 overflow-hidden ">
         <img
                 src="{recipe.image}"
-                alt="{recipe.label}"
+                alt="{recipe.title}"
                 class="rounded-2xl object-cover bg-center w-full h-full object-cover"
                 loading="lazy"
         >
     </div>
     <h1 class="text-3xl sm:text-5xl font-semibold my-8">
-        {recipe.label}
+        {recipe.title}
         <a href={recipe.url} class="text-blue-500 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
             <svg class="w-6 h-6 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
@@ -69,33 +46,42 @@
             </svg>
         </a>
     </h1>
-    <div class="mb-6">
+    <div class="mb-6 flex justify-items-center">
 <!--		<div><strong>Recipe Data:</strong> {recipe}</div>-->
-        <div><strong>Source:</strong> {recipe.source}</div>
-        <div><strong>Serves:</strong> {recipe.yield}</div>
-        <div><strong>Calories:</strong> {parseInt(recipe.calories)} kcal</div>
+        <!-- <div><strong>Source:</strong> {recipe.source}</div> -->
+<!--         <div>
+            <div class="">{recipe.yield}</div>
+            <div class="">Commensal</div>
+        </div>
         {#if recipe.totalTime > 0}
-            <div><strong>Time:</strong> {recipe.totalTime}</div>
+            <div>
+                <div class="">{recipe.totalTime}</div>
+                <div class="">Minutes</div>
+            </div>
         {/if}
+        <div>
+            <div class="">{parseInt(recipe.calories)}</div>
+            <div class="">KCAL</div>
+        </div> -->
     </div>
-    <h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-3 ">
+    <h2 class="">
         Ingredients
     </h2>
-    <ul class="divide-y text-lg text-gray-700">
+    <ul class="text-lg text-gray-700 space-y-2">
         {#each recipe.ingredients as ingredient, index}
-            <li class="flex items-center py-2">
+            <li class="flex items-center py-2 font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg"
-                     class="h-6 w-6 text-gray-300 mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                     class="h-6 w-6 text-green-300 mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
-                {ingredient.text}
+                {ingredient}
             </li>
         {/each}
     </ul>
 
-    {#if typeof recipe.intructions === 'object' && recipe.intructions.length  && 1===2}
+    {#if recipe.intructions }
 
         <h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-6 mt-8">
             How to Make It
@@ -109,7 +95,7 @@
             {/each}
         </ul>
     {:else}
-        <h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-6 mt-8">
+        <h2 class="">
             How to Make It
         </h2>
         <a href={recipe.url} class="text-blue-500 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
@@ -123,27 +109,8 @@
 
 </div>
 
-{#if recipes.length}
-    <div class="mt-16">
-        <h2 class="text-2xl sm:text-4xl font-semibold mb-6 mt-8">
-            Other Recipes You May Like
-        </h2>
-        <div class="grid grid-cols-4 gap-8">
-            {#each recipes as recipe, index}
-                <a href="/recipe/{recipe.uri.split('_')[1]}" class="">
-                    <div class="aspect-w-4 aspect-h-4">
-                        <img
-                                src="{recipe.image}"
-                                alt="{recipe.label}"
-                                class="rounded-2xl w-full"
-                                loading="lazy"
-                        >
-                    </div>
-                    <h2 class="text-md font-semibold mt-2 text-center text-gray-800">
-                        {recipe.label}
-                    </h2>
-                </a>
-            {/each}
-        </div>
-    </div>
-{/if}
+<!-- <RelatedRecipes {recipe}/> -->
+
+<style>
+    h2{ @apply text-2xl sm:text-4xl font-semibold mb-6; }
+</style>
