@@ -170,6 +170,15 @@ function getSelectors (site) {
 		"recipezazz.com": {
 			selInstructions: '.wprm-recipe-instruction'
 		},
+		"justapinch.com": {
+			selInstructions: '.direction-text'
+		},
+		"Simply Recipes": {
+			selInstructions: '.structured-project__steps ol li'
+		},
+		"mylatinatable.com": {
+			selInstructions: '.wprm-recipe-instruction-text'
+		},
 	}[site] || {}
 }
 
