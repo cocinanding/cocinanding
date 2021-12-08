@@ -6,7 +6,6 @@ export async function get({ params, query, headers }) {
     const l = query.get('l') || 'es'
 
     if (!q) {
-        console.log(q)
         const meats = { 
             en: ['chicken', 'pork', 'tuna', 'meat', 'fish'],
             es: ['pollo', 'puerco', 'atun', 'carne', 'pescado'],
@@ -24,18 +23,21 @@ export async function get({ params, query, headers }) {
     if (query.has('l')) query.delete('l')
     if (query.has('size')) query.delete('size')
 
-    let url = `https://api.edamam.com/search?${query.toString()}&&app_id=8af2623e&app_key=e66ad7ba6533d24ebeae5ead426adaed`
+    let url = `https://api.edamam.com/api/recipes/v2?${query.toString()}&type=public&app_id=8af2623e&app_key=e66ad7ba6533d24ebeae5ead426adaed`
 
     const response = await fetch(url)
-    let result = await response.json()
-
-    result.hits = !!result.hits  ? result.hits.map( el => {
-        const id = el.recipe.label.replace(/[\W\s]/g,'-') + '-' + el.recipe.uri.split('_')[1]
-        return {...el.recipe, id: id}
-    }) : []
+    const {hits: recipes, _links: { next}} = await response.json()
+    
+    // result.hits = !!result.hits  ? result.hits.map( el => {
+    //     const id = el.recipe.label.replace(/[\W\s]/g,'-') + '-' + el.recipe.uri.split('_')[1]
+    //     return {...el.recipe, id: id}
+    // }) : []
 
     return {
-        body: result
+        body: {
+            recipes: recipes.map(el=>el.recipe),
+            next: next?.href
+        }
     }
 
 }
