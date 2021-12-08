@@ -9,13 +9,14 @@ export async function get({ query }) {
 
 	const $ = cheerio.load(html)
 
+
 	const recipes =  $('.resultado').map((i, el) => {
 		return {
 			title: $(el).find('.titulo.titulo--resultado').text(),
 			url: $(el).find('.titulo.titulo--resultado').attr('href'),
 			image: $(el).find('.imagen').attr('src'),
 		}
-	}).toArray()
+	}).toArray()	
 
 	return {
 		header: {

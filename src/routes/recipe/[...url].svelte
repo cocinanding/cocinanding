@@ -1,6 +1,6 @@
 <script context="module">
     export async function load({page, fetch, session, context}) {
-        const res = await fetch(`/recipe.json?url=${page.params.url}.json`);
+        const res = await fetch(`/recipe.json?url=${page.params.url}`);
 
         if (!res.ok) {
             return {
@@ -47,22 +47,22 @@
         </a>
     </h1>
     <div class="mb-6 flex justify-items-center">
-<!--		<div><strong>Recipe Data:</strong> {recipe}</div>-->
-        <!-- <div><strong>Source:</strong> {recipe.source}</div> -->
-<!--         <div>
-            <div class="">{recipe.yield}</div>
-            <div class="">Commensal</div>
+        <div>
+            <div class="">{recipe.commensals}</div>
+            <div class="">Comensales</div>
         </div>
-        {#if recipe.totalTime > 0}
+        {#if recipe.time > 0}
             <div>
-                <div class="">{recipe.totalTime}</div>
-                <div class="">Minutes</div>
+                <div class="">{recipe.time}</div>
+                <div class="">Duración</div>
             </div>
         {/if}
-        <div>
-            <div class="">{parseInt(recipe.calories)}</div>
-            <div class="">KCAL</div>
-        </div> -->
+        {#if recipe.calories}
+            <div>
+                <div class="">{recipe.calories}</div>
+                <div class="">KCAL</div>
+            </div>
+        {/if}
     </div>
     <h2 class="">
         Ingredients
@@ -81,31 +81,19 @@
         {/each}
     </ul>
 
-    {#if recipe.intructions }
 
-        <h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-6 mt-8">
-            How to Make It
-        </h2>
+    <h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-6 mt-8">
+        How to Make It
+    </h2>
 
-        <ul class="space-y-2 text-lg text-gray-700">
-            {#each recipe.intructions as intructions, index}
-                <li class="flex items-center py-2">
-                    {intructions}
-                </li>
-            {/each}
-        </ul>
-    {:else}
-        <h2 class="">
-            How to Make It
-        </h2>
-        <a href={recipe.url} class="text-blue-500 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
-            See full instructions <svg class="w-6 h-6 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-            </svg>
-        </a>
-    {/if}
+    <div class="space-y-2 text-lg text-gray-700">
+        {#each recipe.instructions as intruction, index}
+            <p >
+                {intruction}
+            </p>
+        {/each}
+    </div>
+
 
 </div>
 

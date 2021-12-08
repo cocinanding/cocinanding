@@ -9,20 +9,25 @@ export async function get({ query }) {
 
 	try {
 		auth(UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN);		
-		let { data: recipe } = await getCache(url)
+		// let { data: recipe } = await getCache(url)
+		let recipe
 
 		if (!recipe) {
 
 		    const response = await fetch( 'http://' + url )
+		    console.log(response)
 		    const html = await response.text()
 
 			const $ = cheerio.load(html)
 
 			recipe = {
+				url: response.url,
 				title: $('.titulo.titulo--articulo').text(),
-				image: $('.imagen.lupa').text(),
-				ingredients: $('.ingredientes ul li').map((i,el) => $(el).text() ).toArray(),
-				instructions: $('.apartado p').map((i,el) => $(el).text() ).toArray(),
+				image: $('.imagen.lupa img').attr('src'),
+				ingredients: $('.ingredientes ul li').map((i,el) => $(el).text().trim() ).toArray(),
+				instructions: $('.apartado p').map((i,el) => $(el).text().trim() ).toArray(),
+				commensals: parseInt( $('.property.comensales').text() || '0' ),
+				time: $('.property.duracion').text().trim(),
 			}
 			const res = await setCache(url, JSON.stringify(recipe) )
 		}
