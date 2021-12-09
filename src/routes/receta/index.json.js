@@ -9,13 +9,11 @@ export async function get({ query }) {
 
 	try {
 		auth(UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN);		
-		// let { data: recipe } = await getCache(url)
-		let recipe
+		let { data: recipe } = await getCache(url)
 
 		if (!recipe) {
 
 		    const response = await fetch( 'http://' + url )
-		    console.log(response)
 		    const html = await response.text()
 
 			const $ = cheerio.load(html)

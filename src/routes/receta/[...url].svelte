@@ -1,6 +1,6 @@
 <script context="module">
     export async function load({page, fetch, session, context}) {
-        const res = await fetch(`/recipe.json?url=${page.params.url}`);
+        const res = await fetch(`/receta.json?url=${page.params.url}`);
 
         if (!res.ok) {
             return {
