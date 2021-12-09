@@ -1,11 +1,13 @@
 <script context="module">
+	import {sites} from '$lib/config'
 	export async function load({ page, fetch, query }) {
-		const res = await fetch(`/recipes/recetasgratis.json`);
+		const site = sites[Math.floor(Math.random() * sites.length)]
+		const res = await fetch(`/recipes/${site}.json`);
 
 		if (res.ok) {
 			const recipes = await res.json()
 			return {
-				props: { recipes }
+				props: { recipes, sites }
 			};
 		}
 
@@ -21,6 +23,7 @@
 	import Recipe from '$lib/components/Recipe.svelte'
 
 	export let recipes = []
+	export let sites = []
 	let q = ''
 	let loading = false
 	let count = 12
@@ -31,12 +34,14 @@
 	// $: console.log(recipes)
 	async function search() {
 		loading = true
-		const url = `/recipes.json?q=${q}&from=${from}&size=${count}`
-		const res = await fetch(url);
-		if (res.ok) {
-			recipes = await res.json()
-		}		
-		loading = false
+		recipes = []
+		Promise.all( sites.map( async site => {
+			const url = `/recipes/${site}.json?q=${q}`
+			const res = await fetch(url);
+			const data = (res.ok) ? await res.json() : []	
+			recipes = [ ...recipes, ...data]
+		}))
+		.then(()=>loading = false)
 	}
 
 </script>

@@ -2,7 +2,7 @@
 	export let recipe
 	const slug = recipe.url.replace(/https?:\/\//,'')
 </script>
-<a sveltekit:prefetch href="/recipe/{slug}" class="">
+<a sveltekit:prefetch href="/receta/{slug}" class="" >
 	<div class="aspect-w-4 aspect-h-3">
 		<img 
 			src="{recipe.image}" 
