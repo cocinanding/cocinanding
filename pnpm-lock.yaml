@@ -14,8 +14,7 @@ specifiers:
   postcss-load-config: ^3.0.1
   svelte: ^3.38.2
   svelte-preprocess: ^4.7.1
-  tailwindcss: ^2.1.1
-  vite: ^2.2.3
+  tailwindcss: ^2.2.19
 
 dependencies:
   fast-html-parser: 1.0.1
@@ -34,7 +33,6 @@ devDependencies:
   svelte: 3.44.2
   svelte-preprocess: 4.9.8_4d00e6e9f7f5e449d97e7d1c5d5a9a9b
   tailwindcss: 2.2.19_6b4e3d148bdcb715d5f821ed0a9c268b
-  vite: 2.6.14
 
 packages:
 
