@@ -36,16 +36,20 @@
                 loading="lazy"
         >
     </div>
-    <h1 class="text-3xl sm:text-5xl font-semibold my-8">
+    <h1 class="text-3xl sm:text-5xl font-semibold my-8 text-center">
         {recipe.title}
-        <a href={recipe.url} class="text-blue-500 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
+<!--         <a href={recipe.url} class="text-blue-500 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
             <svg class="w-6 h-6 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
             </svg>
-        </a>
+        </a> -->
     </h1>
+    <div class="space-x-2 text-right mb-4">
+        <a href={recipe.url} target="_blank" rel="noopener noreferrer">Receta Original</a>
+        <a href={recipe.url}>Imprimir</a>
+    </div>
     <div class="mb-6 flex justify-items-center">
         <div>
             <div class="">{recipe.commensals}</div>
@@ -65,13 +69,13 @@
         {/if}
     </div>
     <h2 class="">
-        Ingredients
+        Ingredientes
     </h2>
     <ul class="text-lg text-gray-700 space-y-2">
         {#each recipe.ingredients as ingredient, index}
             <li class="flex items-center py-2 font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg"
-                     class="h-6 w-6 text-green-300 mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                     class="h-6 w-6 text-gray-400 mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -83,10 +87,10 @@
 
 
     <h2 class="flex items-center text-2xl sm:text-4xl font-semibold mb-6 mt-8">
-        How to Make It
+        Preparación
     </h2>
 
-    <div class="space-y-2 text-lg text-gray-700">
+    <div class="space-y-4 text-lg text-gray-700">
         {#each recipe.instructions as intruction, index}
             <p >
                 {intruction}
