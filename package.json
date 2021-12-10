@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-netlify": "next",
+    "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "^1.0.0-next.201",
     "@tailwindcss/aspect-ratio": "^0.2.2",
     "@upstash/redis": "^0.1.22",

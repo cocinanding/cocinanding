@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@sveltejs/adapter-netlify': next
+  '@sveltejs/adapter-vercel': next
   '@sveltejs/kit': ^1.0.0-next.201
   '@tailwindcss/aspect-ratio': ^0.2.2
   '@upstash/redis': ^0.1.22
@@ -22,6 +23,7 @@ dependencies:
 
 devDependencies:
   '@sveltejs/adapter-netlify': 1.0.0-next.35
+  '@sveltejs/adapter-vercel': 1.0.0-next.31
   '@sveltejs/kit': 1.0.0-next.201_svelte@3.44.2
   '@tailwindcss/aspect-ratio': 0.2.2_tailwindcss@3.0.0
   '@upstash/redis': 0.1.22
@@ -94,6 +96,12 @@ packages:
     resolution: {integrity: sha512-3PC1RaRReu652ot+LC9EOjkebnZehdwvUm0zhPC8OFPJJccQwq6Y1kbHDeACIIFRTaKLIRBpuYh3idP6ffUGdw==}
     dependencies:
       '@iarna/toml': 2.2.5
+      esbuild: 0.13.15
+    dev: true
+
+  /@sveltejs/adapter-vercel/1.0.0-next.31:
+    resolution: {integrity: sha512-W8p/U00B6ihVrDpwMkgEexfVUzaLmn4MRtXj//Gw4NDFfsrZR4P5wBidrOAIkCYBMvqCOHD+vbAvIiAMOaN23g==}
+    dependencies:
       esbuild: 0.13.15
     dev: true
 
